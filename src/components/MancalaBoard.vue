@@ -1,23 +1,92 @@
+<script setup lang="ts">
+const store1 = ref(0);
+const store2 = ref(0);
+const p = ref(true);
+
+const board = ref([4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4]);
+
+const timeout = (n: number) => new Promise((r) => setTimeout(r, n));
+
+const seed = async (place: number) => {
+  const b = board.value;
+
+  let i = place;
+
+  while (b[place] !== 0) {
+    b[place]--;
+
+    if (i == 0) {
+      b[i]++;
+      i = 12;
+    } else if (i == 11) {
+      b[i]++;
+      i = 13;
+    } else if (i == 12) {
+      store1.value++;
+      i = 6;
+    } else if (i == 13) {
+      store2.value++;
+      i = 5;
+    } else if (i <= 5) {
+      b[i]++;
+      i--;
+    } else {
+      b[i]++;
+      i++;
+    }
+
+    board.value = b;
+    await nextTick();
+    await timeout(200);
+  }
+
+  if ((i === 12 && p.value) || (i === 13 && !p.value)) {
+    return;
+  } else if ((i <= 5 && p.value && b[i] === 1) || (i >= 6 && !p.value && b[i] === 1)) {
+    const ii = i <= 5 ? i + 6 : i - 6;
+
+    let s = store1;
+
+    if (p.value) {
+      s = store2;
+    }
+
+    while (b[i]) {
+      b[i]--;
+      s.value++;
+
+      await nextTick();
+      await timeout(100);
+    }
+    while (b[ii]) {
+      b[ii]--;
+      s.value++;
+
+      await nextTick();
+      await timeout(100);
+    }
+  }
+  p.value = !p.value;
+};
+</script>
+
 <template>
+  <p v-if="p" class="absolute top-1">----</p>
+  <p v-else class="absolute bottom-1">----</p>
   <div
     class="bg-amber-800 w-11/12 h-5/6 rounded-3xl grid grid-cols-8 gap-5 p-5 shadow-lg img-bg board"
   >
-    <MancalaHole />
+    <MancalaHole>
+      <Pebble v-for="_ in store1" />
+    </MancalaHole>
     <div class="grid grid-cols-6 col-span-6 gap-y-10 gap-x-5">
-      <MancalaHole />
-      <MancalaHole />
-      <MancalaHole />
-      <MancalaHole />
-      <MancalaHole />
-      <MancalaHole />
-      <MancalaHole />
-      <MancalaHole />
-      <MancalaHole />
-      <MancalaHole />
-      <MancalaHole />
-      <MancalaHole />
+      <MancalaHole v-for="(p, i) in board" @click="() => seed(i)">
+        <Pebble v-for="_ in p" />
+      </MancalaHole>
     </div>
-    <MancalaHole />
+    <MancalaHole>
+      <Pebble v-for="_ in store2" />
+    </MancalaHole>
   </div>
 </template>
 
