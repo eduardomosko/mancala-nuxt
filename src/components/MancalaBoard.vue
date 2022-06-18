@@ -4,7 +4,12 @@
   >
     <MancalaHole />
     <div class="grid grid-cols-6 col-span-6 gap-y-10 gap-x-5">
-      <MancalaHole />
+      <MancalaHole >
+        <div class="w-4 h-4 pebble-shadow rounded-full bg-blue-500 self-center" />
+        <div class="w-4 h-4 pebble-shadow rounded-full bg-blue-500 self-center" />
+        <div class="w-4 h-4 pebble-shadow rounded-full bg-blue-500 self-center" />
+        <div class="w-4 h-4 pebble-shadow rounded-full bg-blue-500 self-center" />
+	  </MancalaHole>
       <MancalaHole />
       <MancalaHole />
       <MancalaHole />
