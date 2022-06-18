@@ -4,12 +4,7 @@
   >
     <MancalaHole />
     <div class="grid grid-cols-6 col-span-6 gap-y-10 gap-x-5">
-      <MancalaHole >
-        <div class="w-4 h-4 pebble-shadow rounded-full bg-blue-500 self-center" />
-        <div class="w-4 h-4 pebble-shadow rounded-full bg-blue-500 self-center" />
-        <div class="w-4 h-4 pebble-shadow rounded-full bg-blue-500 self-center" />
-        <div class="w-4 h-4 pebble-shadow rounded-full bg-blue-500 self-center" />
-	  </MancalaHole>
+      <MancalaHole />
       <MancalaHole />
       <MancalaHole />
       <MancalaHole />
@@ -33,22 +28,17 @@
 }
 
 .board {
-	--bg: 146, 64, 14;
-	--op: 0.08;
+  --bg: 146, 64, 14;
+  --op: 0.08;
 
   box-shadow: inset 2px -3px 4px 0 rgb(0 0 0 / 0.3),
     inset -2px 3px 4px 0 rgb(255 255 255/ 0.3),
-
-    -64px 64px 64px 0px rgb(0 0 0 / 0.2),
-    -32px 32px 32px 0px rgb(0 0 0 / 0.2),
-    -16px 16px 16px 0px rgb(0 0 0 / 0.2),
-    -8px 8px 8px 0px rgb(0 0 0 / 0.2),
-    -4px 4px 4px 0px rgb(0 0 0 / 0.2),
-    -2px 2px 2px 0px rgb(0 0 0 / 0.2),
-
-    64px -64px 64px 0px rgba(var(--bg) , var(--op)),
-    32px -32px 32px 0px rgba(var(--bg) , var(--op)),
-    16px -16px 16px 0px rgba(var(--bg) , var(--op)),
-    8px -8px 8px 0px rgba(var(--bg) , var(--op));
+    -64px 64px 64px 0px rgb(0 0 0 / 0.2), -32px 32px 32px 0px rgb(0 0 0 / 0.2),
+    -16px 16px 16px 0px rgb(0 0 0 / 0.2), -8px 8px 8px 0px rgb(0 0 0 / 0.2),
+    -4px 4px 4px 0px rgb(0 0 0 / 0.2), -2px 2px 2px 0px rgb(0 0 0 / 0.2),
+    64px -64px 64px 0px rgba(var(--bg), var(--op)),
+    32px -32px 32px 0px rgba(var(--bg), var(--op)),
+    16px -16px 16px 0px rgba(var(--bg), var(--op)),
+    8px -8px 8px 0px rgba(var(--bg), var(--op));
 }
 </style>

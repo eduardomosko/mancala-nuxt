@@ -1,22 +1,14 @@
 <template>
   <div class="rounded-2xl overflow-hidden shadow-inner-round">
     <div class="shadow-inner-sq inner-shine w-full h-full p-3">
-      <div
-        class="w-full h-full grid grid-cols-4 gap-2 place-content-center place-items-center"
-      >
-	  <slot/>
+      <div class="w-full h-full grid grid-cols-4 gap-2 place-content-center place-items-center" >
+        <slot />
       </div>
     </div>
   </div>
 </template>
 
 <style>
-.pebble-shadow {
-  box-shadow: inset 3px -2px 3px -1px rgb(0 0 0 / 0.4),
-    inset -3px 2px 2px -1px rgb(255 255 255/ 0.2),
-    -1px 1px 2px -1px rgb(0 0 0 / 1);
-}
-
 .shadow-inner-sq {
   --sb-blur: 4px;
   --sb-displace: 20px;
